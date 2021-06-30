@@ -1,10 +1,5 @@
 import express from "express";
-import {
-  getList,
-  getListApi,
-  getSort,
-  search,
-} from "../controller/listController";
+import { getList, getSort, search } from "../controller/listController";
 const listRouter = express.Router();
 
 listRouter.get("/", getList);

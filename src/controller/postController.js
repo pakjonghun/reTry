@@ -2,8 +2,8 @@ import Post from "../model/post";
 import bcrypt from "bcrypt";
 
 export const getAdd = (req, res) => {
-  res.render("index", {
-    page: "add",
+  res.render("layouts/add", {
+    page: "Add",
     title: "포스팅",
   });
 };

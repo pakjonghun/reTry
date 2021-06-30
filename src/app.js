@@ -14,11 +14,10 @@ import { localMiddleWare } from "./middleWare";
 const port = process.env.PORT;
 export const app = express();
 
-app.use(morgan("common"));
-app.use("/static", express.static("public"));
-app.use("/post/static", express.static("public"));
-app.use("/post/edit/static", express.static("public"));
 app.set("view engine", "ejs");
+app.use("/static", express.static(__dirname + "/public"));
+app.use("/static", express.static(__dirname + "/public"));
+app.use(morgan("common"));
 app.set("views", path.join(__dirname, "./views"));
 app.use(express.urlencoded({ extended: true }));
 app.use(express.json());

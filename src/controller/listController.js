@@ -1,8 +1,8 @@
 import Post from "../model/post";
 
 export const getList = (req, res) => {
-  res.render("index", {
-    page: "list",
+  res.render("layouts/list", {
+    page: "List",
     title: "글목록",
   });
 };
