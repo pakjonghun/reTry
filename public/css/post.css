@@ -1,0 +1,30 @@
+.post_container {
+  min-height: 40vh;
+}
+
+.post_header {
+  display: flex;
+}
+
+.post {
+  margin: 0.5rem 0.3rem;
+}
+
+.title {
+  margin: 0.5rem 3rem;
+}
+
+.post_content {
+  padding: 0.5rem;
+  background-color: lightgray;
+  width: 30em;
+  height: 18em;
+}
+
+.write_form input {
+  margin: 0;
+}
+
+.form_control_box {
+  display: flex;
+}

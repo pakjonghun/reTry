@@ -1,0 +1,11 @@
+.edit_form_controller {
+  display: flex;
+}
+
+.edit_post_container {
+  display: block;
+}
+
+.info {
+  color: red;
+}
