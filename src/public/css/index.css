@@ -1,9 +1,5 @@
-@import "./list.css";
-@import "./post.css";
-@import "./comment.css";
 @import "./add.css";
-@import "./edit.css";
-
+@import "./list.css";
 * {
   color: inherit;
   text-decoration: none;

@@ -16,7 +16,7 @@ export const app = express();
 
 app.set("view engine", "ejs");
 app.use("/static", express.static(__dirname + "/public"));
-app.use("/static", express.static(__dirname + "/public"));
+app.use("/post/static", express.static(__dirname + "/public"));
 app.use(morgan("common"));
 app.set("views", path.join(__dirname, "./views"));
 app.use(express.urlencoded({ extended: true }));
