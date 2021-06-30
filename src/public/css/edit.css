@@ -1,9 +1,6 @@
-.edit_form_controller {
-  display: flex;
-}
-
-.edit_post_container {
-  display: block;
+.edit_post_container input {
+  padding: 0.1rem;
+  margin: 0.2rem;
 }
 
 .info {

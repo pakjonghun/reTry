@@ -24,7 +24,7 @@ export const getPostApi = async (req, res) => {
   try {
     const { id } = req.params;
     const post = await Post.findById(id).populate("comments");
-    res.json({ post });
+    res.json({ post, isMyName: post.writer === req.session.myName });
   } catch (e) {
     console.log(e);
     res.sendStatus(404);
@@ -35,6 +35,8 @@ export const getEdit = async (req, res) => {
   try {
     const { id } = req.params;
     const post = await Post.findById(id);
+    const writer = post.writer;
+    console.log(writer);
     //수정해야함
     res.render("layouts/edit", {
       page: "Edit",

@@ -38,7 +38,7 @@ app.use(
 
 app.use((req, res, next) => {
   req.sessionStore.all((error, session) => {
-    // console.log(session);
+    console.log(session);
     next();
   });
 });

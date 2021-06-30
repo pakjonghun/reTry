@@ -4,6 +4,10 @@ window.addEventListener("load", function () {
   goAgain();
 });
 
+if (myName) {
+  console.log(myName);
+}
+
 //데이터를 받을 아이디를 url 에서 가져와서 보냈다.
 async function goAgain() {
   const url = window.location.href.split("/");
@@ -20,6 +24,7 @@ async function goAgain() {
 
 //받아온 데이터를 화면에 그려준다.
 function paintAgain(data) {
+  const { isMyName } = data;
   const {
     post: { comments, _id: id, title, writer, content, createdAt },
   } = data;
@@ -29,13 +34,18 @@ function paintAgain(data) {
       <h2 class="detail_title post title">${title}</h2>
       <span class="detail_date post createdAt">${createdAt}</span>
       <span class="detail_writer post writer">${writer}</span>
-      <button
+      ${
+        isMyName &&
+        `<button
         id="edit_post"
         class="post_edit"
         onclick="location.href='/post/edit/${id}'">
         수정
       </button>
-      <button id="delete_post" class="${id}">삭제</button>
+      <button id="delete_post" class="${id}">삭제</button>`
+      }
+        
+      
       </header>
       <div>
       <p class="post_content">${content}</p>
