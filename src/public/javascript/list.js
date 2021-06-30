@@ -8,7 +8,7 @@ const search_term = document.getElementById("search_term");
 const search_date_term = document.getElementById("search_date_term");
 const search_submit = document.getElementById("search_submit");
 const search_form = document.getElementById("search_form");
-//검색 폼에 리스너를 붙이고
+
 if (search_form) {
   search_form.addEventListener("submit", async function (e) {
     e.preventDefault();

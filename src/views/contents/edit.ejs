@@ -1,0 +1,15 @@
+<section class="edit_post_container">
+    <form method="POST">
+  <%if(error){ %>
+      <small class="info"><%=error%></small>
+  <%}%>
+      <div class="edit_form_controller">
+        <input  required=true value=<%=post.title%> name="title" placeholder="제목" type="text" class="write title"></input>
+        <input required=true value=<%=post.writer%> name="writer" placeholder="작성자" type="text" class="write writer" ></input>
+        <input   required=true name="password" placeholder="비밀번호" type="text" class="write writer"></input>
+        <input  type="submit" class="write_add" ></button>
+    </div>
+        <textarea name="content" class="post_content"><%=post.content%></textarea>
+    </form>
+  </section>
+  

@@ -25,22 +25,22 @@ function paintAgain(data) {
   } = data;
   const postHeader = document.querySelector("#post_container");
   const tags = `
-  <header class="post_header">
-    <h2 class="detail_title post title">${title}</h2>
-    <span class="detail_date post createdAt">${createdAt}</span>
-    <span class="detail_writer post writer">${writer}</span>
-    <button
-      id="edit_post"
-      class="post_edit"
-      onclick="location.href='/post/edit/${id}'">
-      수정
-    </button>
-    <button id="delete_post" class="${id}">삭제</button>
-    </header>
-    <div>
-    <p class="post_content">${content}</p>
-  </div>
-  `;
+    <header class="post_header">
+      <h2 class="detail_title post title">${title}</h2>
+      <span class="detail_date post createdAt">${createdAt}</span>
+      <span class="detail_writer post writer">${writer}</span>
+      <button
+        id="edit_post"
+        class="post_edit"
+        onclick="location.href='/post/edit/${id}'">
+        수정
+      </button>
+      <button id="delete_post" class="${id}">삭제</button>
+      </header>
+      <div>
+      <p class="post_content">${content}</p>
+    </div>
+    `;
   if (postHeader) {
     postHeader.innerHTML = tags;
   }

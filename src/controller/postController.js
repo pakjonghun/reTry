@@ -10,8 +10,8 @@ export const getAdd = (req, res) => {
 
 export const getPost = async (req, res) => {
   try {
-    return res.render("index", {
-      page: "post",
+    return res.render("layouts/post", {
+      page: "Post",
       title: "포스트 내용",
     });
   } catch (e) {
@@ -35,8 +35,9 @@ export const getEdit = async (req, res) => {
   try {
     const { id } = req.params;
     const post = await Post.findById(id);
-    res.render("index", {
-      page: "edit",
+    //수정해야함
+    res.render("layouts/edit", {
+      page: "Edit",
       title: "포스트 수정",
       post,
       error: 0,
@@ -55,8 +56,8 @@ export const postEdit = async (req, res) => {
     delete req.body.password;
 
     if (!isAuth) {
-      return res.render("index", {
-        page: "edit",
+      return res.render(`layouts/edit`, {
+        page: "Edit",
         title: "포스트 수정",
         post,
         error: "잘못된 비밀번호",
@@ -76,11 +77,13 @@ export const deletePost = async (req, res) => {
     const { password } = req.body;
     const post = await Post.findById(id);
     if (!post) {
-      return res.status(409).json({ error: "No post" });
+      return res
+        .status(409)
+        .json({ error: "해당 포스트가 존재하지 않습니다." });
     }
     const isCorrect = await bcrypt.compare(password, post.password);
     if (!isCorrect) {
-      return res.status(409).json({ error: "Wrong password" });
+      return res.status(409).json({ error: "잘못된 비밀번호입니다." });
     }
     await Post.remove({ _id: id });
     return res.redirect("/");
