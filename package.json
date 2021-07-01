@@ -2,7 +2,6 @@
   "name": "retry",
   "version": "1.0.0",
   "description": "",
-  "main": "index.js",
   "scripts": {
     "start": "node src/init.js",
     "build": "npm run build:dev",
@@ -14,12 +13,10 @@
     "url": "git+https://github.com/pakjonghun/reTry.git"
   },
   "keywords": [],
-  "author": "",
   "license": "ISC",
   "bugs": {
     "url": "https://github.com/pakjonghun/reTry/issues"
   },
-  "homepage": "https://github.com/pakjonghun/reTry#readme",
   "dependencies": {
     "bcrypt": "^5.0.1",
     "connect-mongo": "^4.4.1",

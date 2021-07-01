@@ -5,6 +5,7 @@ const comment_box = document.getElementById("comment_box");
 
 comment_form.addEventListener("submit", async function (e) {
   e.preventDefault();
+  console.log(1);
   const writer = comment_writer.value;
   const content = comment_content.value;
   const url = window.location.href.split("/");

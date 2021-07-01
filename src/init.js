@@ -1,4 +1,6 @@
-require("dotenv").config();
+const dotenv = require("dotenv");
+dotenv.config();
+
 import "regenerator-runtime";
 import "./db.js";
 import "./model/comment.js";
