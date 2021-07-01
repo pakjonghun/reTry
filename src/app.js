@@ -1,4 +1,5 @@
-require("dotenv").config();
+const dotenv = require("dotenv");
+dotenv.config();
 import morgan from "morgan";
 import express from "express";
 import commentRouter from "./routers/commentRouter.js";
