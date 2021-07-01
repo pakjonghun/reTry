@@ -7,6 +7,7 @@ window.addEventListener("load", function () {
 //데이터를 받을 아이디를 url 에서 가져와서 보냈다.
 async function goAgain() {
   const url = window.location.href.split("/");
+  console.log();
   const id = url[url.length - 1];
 
   await fetch(`/post/api/${id}`)
