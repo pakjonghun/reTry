@@ -2,7 +2,6 @@ require("dotenv").config();
 import "regenerator-runtime";
 import "./db";
 import morgan from "morgan";
-import path from "path";
 import express from "express";
 import commentRouter from "./routers/commentRouter";
 import listRouter from "./routers/listRouter";
@@ -36,12 +35,6 @@ app.use(
     }),
   })
 );
-
-app.use((req, res, next) => {
-  req.sessionStore.all((error, session) => {
-    next();
-  });
-});
 
 app.use(localMiddleWare);
 
