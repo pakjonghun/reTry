@@ -3,9 +3,8 @@
   "version": "1.0.0",
   "description": "",
   "main": "index.js",
-  "type": "module",
   "scripts": {
-    "start": "node src/app.js",
+    "start": "node src/init.js",
     "build": "npm run build:dev",
     "build:dev": "babel src -d build",
     "start:dev": "nodemon"

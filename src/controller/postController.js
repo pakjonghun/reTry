@@ -1,4 +1,4 @@
-import Post from "../model/post";
+import Post from "../model/post.js";
 import bcrypt from "bcrypt";
 
 export const getAdd = (req, res) => {

@@ -7,7 +7,7 @@ import {
   getPostApi,
   postAdd,
   postEdit,
-} from "../controller/postController";
+} from "../controller/postController.js";
 const postRouter = express.Router();
 
 postRouter.route("/add").get(getAdd).post(postAdd);

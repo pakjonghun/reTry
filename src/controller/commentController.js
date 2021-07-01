@@ -1,5 +1,5 @@
-import Post from "../model/post";
-import Comment from "../model/comment";
+import Post from "../model/post.js";
+import Comment from "../model/comment.js";
 
 export const postComment = async (req, res) => {
   const { writer, content, postId: _id } = req.body;

@@ -1,4 +1,4 @@
 {
-  "ignore": ["webpack.config.js", "src/views/*", "public/*"],
-  "exec": "babel-node src/app.js"
+  "ignore": ["src/views/*", "public/*"],
+  "exec": "babel-node src/init.js"
 }

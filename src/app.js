@@ -1,18 +1,13 @@
-require("dotenv").config();
-import "regenerator-runtime";
-import "./db";
 import morgan from "morgan";
 import express from "express";
-import commentRouter from "./routers/commentRouter";
-import listRouter from "./routers/listRouter";
-import postRouter from "./routers/postRouter";
+import commentRouter from "./routers/commentRouter.js";
+import listRouter from "./routers/listRouter.js";
+import postRouter from "./routers/postRouter.js";
 import session from "express-session";
 import MongoStore from "connect-mongo";
-import recommentRouter from "./routers/recommentRouter";
-import { localMiddleWare } from "./middleWare";
+import { localMiddleWare } from "./middleWare.js";
 
-const port = process.env.PORT;
-export const app = express();
+const app = express();
 
 app.set("views", process.cwd() + "/src/views");
 app.set("view engine", "ejs");
@@ -26,13 +21,15 @@ app.use(
   session({
     secret: process.env.SECRET,
     resave: true,
+
+    saveUninitialized: false,
+    store: MongoStore.create({
+      mongoUrl:
+        "https://cloud.mongodb.com/v2/60dd3223b7da3255fb3093d2#:~:text=mongodb%2Bsrv%3A//fireking5997%3A%3Cpassword%3E%40cluster0.1p2vs.mongodb.net/myFirstDatabase%3FretryWrites%3Dtrue%26w%3Dmajority",
+    }),
     cookie: {
       maxAge: 1000 * 60 * 20,
     },
-    saveUninitialized: false,
-    store: MongoStore.create({
-      mongoUrl: process.env.MONGOURL,
-    }),
   })
 );
 
@@ -41,6 +38,5 @@ app.use(localMiddleWare);
 app.use("/", listRouter);
 app.use("/post", postRouter);
 app.use("/comment", commentRouter);
-app.use("/recomment", recommentRouter);
 
-app.listen(port, () => console.log(`server is running on ${port}`));
+export default app;

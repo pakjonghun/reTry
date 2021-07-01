@@ -1,4 +1,4 @@
-import Post from "../model/post";
+import Post from "../model/post.js";
 
 export const getList = (req, res) => {
   res.render("layouts/list", {
