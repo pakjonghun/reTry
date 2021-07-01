@@ -8,5 +8,5 @@ import "./model/post.js";
 import "./model/reComment.js";
 import { app } from "./app.js";
 
-const port = 4000;
+const port = process.env.PORT || 3000;
 app.listen(port, () => console.log("server is running on server"));
