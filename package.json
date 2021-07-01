@@ -20,6 +20,8 @@
   },
   "homepage": "https://github.com/pakjonghun/reTry#readme",
   "dependencies": {
+    "@babel/cli": "^7.14.5",
+    "@babel/plugin-transform-runtime": "^7.14.5",
     "bcrypt": "^5.0.1",
     "connect-mongo": "^4.4.1",
     "ejs": "^3.1.6",
@@ -29,8 +31,7 @@
     "mongoose": "^5.12.15",
     "morgan": "^1.10.0",
     "prettier": "^2.3.2",
-    "regenerator-runtime": "^0.13.7",
-    "@babel/cli": "^7.14.5"
+    "regenerator-runtime": "^0.13.7"
   },
   "devDependencies": {
     "@babel/cli": "^7.14.5",
