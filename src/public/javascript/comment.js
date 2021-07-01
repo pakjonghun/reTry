@@ -1,3 +1,4 @@
+import "regenerator-runtime";
 const comment_form = document.getElementById("comment_form");
 const comment_writer = document.getElementById("comment_writer");
 const comment_content = document.getElementById("comment_content");

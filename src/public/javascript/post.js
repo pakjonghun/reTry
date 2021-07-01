@@ -1,3 +1,5 @@
+import "regenerator-runtime";
+
 window.addEventListener("load", function () {
   //포스트 페이지가 처음 열리면(post 변수를 받으면 페이지를 그려줄 데이터를 받는다.)\
   //이 방법이 맞나.. 모르겠다 헤메다가 그냥 이렇게 했다 ㅠ ㅠ 이거 진짜 이상한데 ㅠ ㅠ 그래도 그냥 이렇게 ㅠ ㅠ 일단..

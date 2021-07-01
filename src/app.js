@@ -13,9 +13,9 @@ export const app = express();
 
 app.set("views", process.cwd() + "/src/views");
 app.set("view engine", "ejs");
-app.use("/static", express.static(process.cwd() + "/src/public"));
-app.use("/post/static", express.static(process.cwd() + "/src/public"));
-app.use("/post/edit/static", express.static(process.cwd() + "/src/public"));
+app.use("/static", express.static(process.cwd() + "/assets"));
+app.use("/post/static", express.static(process.cwd() + "/assets"));
+app.use("/post/edit/static", express.static(process.cwd() + "/assets"));
 app.use(morgan("common"));
 app.use(express.urlencoded({ extended: true }));
 app.use(express.json());

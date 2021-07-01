@@ -1,3 +1,5 @@
+import "regenerator-runtime";
+
 const writeForm = document.getElementById("write_form");
 if (writeForm) {
   writeForm.addEventListener("submit", writeController);

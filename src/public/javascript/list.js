@@ -1,3 +1,6 @@
+import "regenerator-runtime";
+import "../css/index.css";
+
 window.addEventListener("DOMContentLoaded", function () {
   getList("createdAt");
 });

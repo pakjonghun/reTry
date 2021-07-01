@@ -3,10 +3,10 @@
   "version": "1.0.0",
   "description": "",
   "scripts": {
-    "start": "node src/init.js",
-    "build:test": "node build/init.js",
-    "build": "npm run build:dev",
-    "build:dev": "babel src -d build",
+    "start": "node build/init.js",
+    "build": "babel src -d build && npm run build:assets",
+    "assets:dev": "webpack --mode=development -w",
+    "build:assets": "webpack --mode=production",
     "start:dev": "nodemon"
   },
   "repository": {
@@ -26,6 +26,7 @@
     "ejs-blocks": "^0.1.4",
     "express": "^4.17.1",
     "express-session": "^1.17.2",
+    "import": "^0.0.6",
     "mongoose": "^5.12.15",
     "morgan": "^1.10.0",
     "regenerator-runtime": "^0.13.7"
@@ -36,9 +37,15 @@
     "@babel/node": "^7.14.7",
     "@babel/plugin-transform-runtime": "^7.14.5",
     "@babel/preset-env": "^7.14.7",
+    "babel-loader": "^8.2.2",
+    "css-loader": "^5.2.6",
     "install": "^0.13.0",
+    "mini-css-extract-plugin": "^2.0.0",
     "nodemon": "^2.0.7",
     "npm": "^7.19.0",
-    "prettier": "^2.3.2"
+    "prettier": "^2.3.2",
+    "style-loader": "^3.0.0",
+    "webpack": "^5.41.1",
+    "webpack-cli": "^4.7.2"
   }
 }
