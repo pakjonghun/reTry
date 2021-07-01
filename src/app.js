@@ -1,4 +1,5 @@
 require("dotenv").config();
+import "regenerator-runtime";
 import "./db";
 import morgan from "morgan";
 import path from "path";
@@ -14,12 +15,12 @@ import { localMiddleWare } from "./middleWare";
 const port = process.env.PORT;
 export const app = express();
 
+app.set("views", process.cwd() + "/src/views");
 app.set("view engine", "ejs");
-app.use("/static", express.static(__dirname + "/public"));
-app.use("/post/static", express.static(__dirname + "/public"));
-app.use("/post/edit/static", express.static(__dirname + "/public"));
+app.use("/static", express.static(process.cwd() + "/src/public"));
+app.use("/post/static", express.static(process.cwd() + "/src/public"));
+app.use("/post/edit/static", express.static(process.cwd() + "/src/public"));
 app.use(morgan("common"));
-app.set("views", path.join(__dirname, "./views"));
 app.use(express.urlencoded({ extended: true }));
 app.use(express.json());
 app.use(
