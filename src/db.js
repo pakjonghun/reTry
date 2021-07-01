@@ -1,5 +1,4 @@
 import mongoose from "mongoose";
-console.log(process.env.MONGOURL);
 mongoose.connect("mongodb://localhost:27017", {
   useNewUrlParser: true,
   useUnifiedTopology: true,

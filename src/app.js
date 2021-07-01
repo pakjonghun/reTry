@@ -19,7 +19,6 @@ app.use("/post/edit/static", express.static(process.cwd() + "/src/public"));
 app.use(morgan("common"));
 app.use(express.urlencoded({ extended: true }));
 app.use(express.json());
-console.log(process.env.MONGOURL);
 app.use(
   session({
     secret: process.env.SECRET,
