@@ -6,7 +6,7 @@ import {
 } from "../controller/commentController";
 const commentRouter = express.Router();
 
-commentRouter.post("/add/:id", postComment);
+commentRouter.post("/add", postComment);
 commentRouter.patch("/edit", commentEdit);
 commentRouter.delete("/delete", commentDelete);
 

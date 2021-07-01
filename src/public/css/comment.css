@@ -1,0 +1,22 @@
+.comment_container {
+  display: flex;
+  align-items: center;
+  justify-content: flex-start;
+  max-width: 35rem;
+  margin-bottom: 1rem;
+}
+
+small {
+  margin-right: 1rem;
+}
+
+.comment_container form {
+  display: grid;
+  grid-template-columns: 2fr 4fr 1fr;
+}
+
+.comment_box {
+  max-width: 35rem;
+  display: grid;
+  grid-template-columns: 3fr 4fr 1fr 1fr;
+}

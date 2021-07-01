@@ -4,10 +4,6 @@ window.addEventListener("load", function () {
   goAgain();
 });
 
-if (myName) {
-  console.log(myName);
-}
-
 //데이터를 받을 아이디를 url 에서 가져와서 보냈다.
 async function goAgain() {
   const url = window.location.href.split("/");
@@ -18,8 +14,48 @@ async function goAgain() {
     .then((data) => {
       if (data) {
         paintAgain(data);
+        paintAllComment(data);
       }
     });
+}
+
+function paintAllComment(data) {
+  const {
+    post: { comments },
+    myName,
+  } = data;
+
+  const tags = comments
+    .map((item) => {
+      const { _id, writer, content } = item;
+      return `
+    <div class="comment_box">
+    
+        <span>${writer}</span>
+        <span>${content}</span>
+      
+    ${
+      myName === writer
+        ? `<button id="${_id}_edit">수정</button>
+      <button id="${_id}_del">삭제</button>`
+        : ""
+    }
+
+    </div>
+    `;
+    })
+    .join("");
+
+  comment_box.innerHTML = tags;
+
+  comments.forEach((element) => {
+    const editBtn = document.getElementById(`${element._id}_edit`);
+    const delBtn = document.getElementById(`${element._id}_del`);
+    if (editBtn && delBtn) {
+      editBtn.addEventListener("click", editComment);
+      delBtn.addEventListener("click", delComment);
+    }
+  });
 }
 
 //받아온 데이터를 화면에 그려준다.
@@ -28,6 +64,7 @@ function paintAgain(data) {
   const {
     post: { comments, _id: id, title, writer, content, createdAt },
   } = data;
+  console.log(comments);
   const postHeader = document.querySelector("#post_container");
   const tags = `
     <header class="post_header">
@@ -35,14 +72,15 @@ function paintAgain(data) {
       <span class="detail_date post createdAt">${createdAt}</span>
       <span class="detail_writer post writer">${writer}</span>
       ${
-        isMyName &&
-        `<button
+        isMyName
+          ? `<button
         id="edit_post"
         class="post_edit"
         onclick="location.href='/post/edit/${id}'">
         수정
       </button>
       <button id="delete_post" class="${id}">삭제</button>`
+          : ""
       }
         
       
@@ -57,6 +95,7 @@ function paintAgain(data) {
 
   //그린후 직후에 리스너를 달아는데 이 리스너를 함수 밖에서 달 경우 오작동 한다 아마 같은 아이디의 다른 태그가 있는보양이다??
   const remove_posts = document.getElementById("delete_post");
+
   if (remove_posts) {
     remove_posts.addEventListener("click", removePPosts);
   }
@@ -80,7 +119,6 @@ async function removePPosts(e) {
     });
     if (result.status === 409) {
       const data = await result.json();
-      console.log(data);
       return alert(data.error);
     } else {
       window.location.href = "/";

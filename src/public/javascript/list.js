@@ -16,7 +16,6 @@ if (search_form) {
     const selected = search_select.value;
     const term = search_term.value;
     const date = search_date_term.value;
-
     await fetch(
       `/api/search?term=${term}&date=${date}&searchSelect=${selected}`
     )

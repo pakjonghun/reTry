@@ -1,0 +1,32 @@
+<div class="comment_list">
+  <div class="comment_container">
+    <small>댓글</small>
+    <form action="" id="comment_form">
+      <%if(myName){%>
+      <input
+        class="comment_writer"
+        id="comment_writer"
+        value="<%=myName%>"
+        readonly
+      />
+      <%}else{%>
+      <input
+        placeholder="작성자"
+        require="true"
+        type="text"
+        class="comment_writer"
+        id="comment_writer"
+      />
+      <%}%>
+      <input
+        require="true"
+        placeholder="댓글내용"
+        type="text"
+        class="comment_content"
+        id="comment_content"
+      />
+      <button>완료</button>
+    </form>
+  </div>
+  <div id="comment_box"></div>
+</div>

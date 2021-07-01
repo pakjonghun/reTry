@@ -9,9 +9,12 @@
   </head>
   <body>
     <header><%- include('../partials/header'); %></header>
-    <main><%- include('../contents/post'); %></main>
+    <main>
+      <%- include('../contents/post'); %> <%- include('../contents/comment'); %>
+    </main>
 
     <footer><%=page%>페이지</footer>
   </body>
   <script src="static/javascript/post.js"></script>
+  <script src="static/javascript/comment.js"></script>
 </html>

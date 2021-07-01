@@ -28,10 +28,15 @@ export const search = async (req, res) => {
         ? Number(dateObj.getMonth()) + 1
         : "0" + String(Number(dateObj.getMonth()) + 1)
     );
-    const day = String(dateObj.getDate());
+    const day = String(
+      dateObj.getDate().length === 2
+        ? dateObj.getDate()
+        : "0" + dateObj.getDate()
+    );
     const limit = 5;
     const skip = 0 * 5;
     const { term, date, searchSelect } = req.query;
+
     const reg = term.trim().length ? new RegExp(term, "i") : "";
     let posts;
     let count;

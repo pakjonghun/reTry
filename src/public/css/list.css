@@ -1,14 +1,22 @@
 .list {
-  width: 45rem;
+  max-width: 50rem;
   padding: 0.5rem;
   display: grid;
   grid-template-columns: 1fr 2fr 3fr 3fr 2fr 1fr;
-  place-items: center start;
+  place-items: center center;
   place-content: center center;
 }
 
 .list:hover {
   background-color: lightblue;
+}
+
+.lists_title {
+  max-width: 50rem;
+  display: grid;
+  grid-template-columns: 1fr 2fr 3fr 3fr 2fr 1fr;
+  place-items: center center;
+  place-content: center center;
 }
 
 .control_box {

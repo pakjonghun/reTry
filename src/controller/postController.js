@@ -23,8 +23,16 @@ export const getPost = async (req, res) => {
 export const getPostApi = async (req, res) => {
   try {
     const { id } = req.params;
-    const post = await Post.findById(id).populate("comments");
-    res.json({ post, isMyName: post.writer === req.session.myName });
+    const post = await Post.findById(id).populate({
+      path: "comments",
+      options: { sort: { createdAt: -1 } },
+    });
+
+    res.json({
+      post,
+      isMyName: post.writer === req.session.myName,
+      myName: req.session.myName,
+    });
   } catch (e) {
     console.log(e);
     res.sendStatus(404);
@@ -36,8 +44,6 @@ export const getEdit = async (req, res) => {
     const { id } = req.params;
     const post = await Post.findById(id);
     const writer = post.writer;
-    console.log(writer);
-    //수정해야함
     res.render("layouts/edit", {
       page: "Edit",
       title: "포스트 수정",
